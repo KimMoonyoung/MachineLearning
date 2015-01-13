@@ -132,6 +132,7 @@ def createTree(dataSet, labels):
         return classList[0]
 
     # 데이터가 더이상 없을 때 남은게 라벨일 때
+    # 더이상 나눌 수 없을을 의미
     if len(dataSet[0]) == 1:
         return majorityCnt(classList)
 
