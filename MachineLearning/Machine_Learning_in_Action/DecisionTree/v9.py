@@ -77,13 +77,14 @@ def splitDataSet(dataSet, axis, value):
     return retDataSet
 
 def chooseBestFeatureToSplit(dataSet):
+    # 맨 뒤 라벨을 제외한 데이터 열의 수
     numFeatures = len(dataSet[0])-1
     # 전체 데이터의 라벨 복잡도
     baseEntropy = calcShannonEnt(dataSet)
     bestInfoGain = 0.0
     bestFeature = -1
 
-    # 데이터 열 개수동안
+    # 데이터가 있는 열
     for i in range(numFeatures):
         # 해당 열이 가지는 값들
         featList = [example[i] for example in dataSet]
@@ -130,7 +131,7 @@ def createTree(dataSet, labels):
     if classList.count(classList[0]) == len(classList):
         return classList[0]
 
-    # 라벨이 더이상 없을 떄, 마지막 라벨일 때
+    # 데이터가 더이상 없을 때 남은게 라벨일 때
     if len(dataSet[0]) == 1:
         return majorityCnt(classList)
 
