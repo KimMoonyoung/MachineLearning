@@ -119,7 +119,7 @@ def majorityCnt(classList):
 
         classCount[vote] += 1
 
-    sortedClassCount = sorted(classCount.iteritems(), key=classCount.itemgetter(1), reverse=True)
+    sortedClassCount = sorted(classCount.iteritems(), key=operator.itemgetter(1), reverse=True)
 
     return srotedClassCount[0][0]
 
@@ -172,6 +172,9 @@ def classify(inputTree, featLabels, testVec):
     secondDict = inputTree[firstStr]
 
     featIndex = featLabels.index(firstStr)
+
+    # 데이터를 분류할 수 없는 경우
+    classLabel = "-"
 
     for key in secondDict.keys():
         if testVec[featIndex] == key:
