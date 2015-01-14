@@ -173,7 +173,7 @@ def classify(inputTree, featLabels, testVec):
 
     featIndex = featLabels.index(firstStr)
 
-    # 데이터를 분류할 수 없는 경우
+    # 데이터를 분류할 수 없는 경우를 대비하여
     classLabel = "-"
 
     for key in secondDict.keys():
